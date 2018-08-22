@@ -19,10 +19,10 @@ We will be using the MNIST dataset, which is comprised of grayscale images of di
 
 # Extras
 * Saving the Model for later use : https://gist.github.com/ECE-Engineer/4be7e4e202bf9fd5858972fec119c514
-* Adding Summaries
+* Adding Summaries : https://gist.github.com/ECE-Engineer/e3a6b07c5c5d7f0846dfabe7877feb2f
 * Adding Regularization
 * Confusion Matrix
-* Loading the model from memory
+* Model Loading
 * Using Eager Execution
 
 # A More Formal Introduction
