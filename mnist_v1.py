@@ -22,7 +22,7 @@ import tensorflow as tf
 import platform
 
 # set constants
-TOTAL_EPOCHS = 20000
+TOTAL_EPOCHS = 1000
 label_count = 10
 data_width = 28
 data_height = 28

@@ -18,7 +18,7 @@ We will be using the MNIST dataset, which is comprised of grayscale images of di
 
 
 # Extras
-* Saving the Model for later use
+* Saving the Model for later use : https://gist.github.com/ECE-Engineer/4be7e4e202bf9fd5858972fec119c514
 * Adding Summaries
 * Adding Regularization
 * Confusion Matrix
