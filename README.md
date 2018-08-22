@@ -1,4 +1,4 @@
-# CNN-TensorFlow-Tutorial (WIP)
+# CNN-TensorFlow-Tutorial
 A simple CNN tutorial prepared for the SUNY Oswego TensorFlow workshop &amp; talk.
 
 ## Preparation
@@ -10,11 +10,11 @@ Please go to the tensorflow website and install the appropriate version of tenso
 We will be using the MNIST dataset, which is comprised of grayscale images of digits [0-9].
 * http://yann.lecun.com/exdb/mnist/
 
-## Preparing the data pipelines
+## Preparing the data pipelines --- WIP
 
-## Defining the architecture
+## Defining the architecture --- WIP
 
-## Evaluating the model
+## Evaluating the model --- WIP
 
 
 # Extras
@@ -23,6 +23,7 @@ We will be using the MNIST dataset, which is comprised of grayscale images of di
 * Adding Regularization : https://gist.github.com/ECE-Engineer/dbf317e175f3a988e3440fe23e8b1bfa
 * Confusion Matrix : https://gist.github.com/ECE-Engineer/c1d8a2f737a160aa7b0250b86e8d1ac2
 * Model Loading : https://gist.github.com/ECE-Engineer/fba661b1a8b45b1193942c61e43bd287
+* Using Tensorboard : https://www.tensorflow.org/guide/summaries_and_tensorboard
 
 # A More Formal Introduction
 * https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/#0

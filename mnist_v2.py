@@ -192,8 +192,8 @@ def run_model():
   # Initialize and Run
   with tf.Session() as sess:
     merged = tf.summary.merge_all()
-    train_writer = tf.summary.FileWriter(log_dir + generic_slash + tensorflow + generic_slash + 'train', sess.graph)
-    test_writer = tf.summary.FileWriter(log_dir + generic_slash + tensorflow + generic_slash + 'test')
+    train_writer = tf.summary.FileWriter(log_dir + generic_slash + 'tensorflow' + generic_slash + 'train', sess.graph)
+    test_writer = tf.summary.FileWriter(log_dir + generic_slash + 'tensorflow' + generic_slash + 'test')
     sess.run(tf.global_variables_initializer())
     sess.run(train_iterator.initializer)
     sess.run(test_iterator.initializer)
@@ -210,7 +210,7 @@ def run_model():
             x: validation_batch[0], y_: validation_batch[1], keep_prob: 1.0})
         print('step ' + str(i) + ', test accuracy' + str(acc))
         # Save the model
-        saver.save(sess, log_dir + generic_slash + tensorflow + generic_slash + "mnist_model.ckpt")
+        saver.save(sess, log_dir + generic_slash + "tensorflow" + generic_slash + "mnist_model.ckpt")
         # Save the summaries
         test_writer.add_summary(summary, i)
         test_writer.flush()
@@ -243,25 +243,28 @@ def run_model():
     predict, correct = sess.run([CNN_prediction_label, actual_label], feed_dict={
         x: validation_batch[0], y_: validation_batch[1], keep_prob: 1.0})
     skplt.metrics.plot_confusion_matrix(correct, predict, normalize=True)
-    plt.savefig(log_dir + generic_slash + tensorflow + generic_slash + "plot.png")
+    plt.savefig(log_dir + generic_slash + "tensorflow" + generic_slash + "plot.png")
     
 # Create a loader for the graph
 def graph_loader():
   with tf.Session() as sess:
     #load the graph
-	restore_saver = tf.train.import_meta_graph(log_dir + generic_slash + 'tensorflow' 
-	    + generic_slash + "mnist_model.ckpt")
-	#reload all the params to the graph
-	restore_saver.restore(sess, tf.train.latest_checkpoint(log_dir))
-	global model
-	model = tf.get_default_graph()
-	
-	#store the variables
-	global x
-	x = graph.get_tensor_by_name("x:0")
-	global y_
-	y_ = graph.get_tensor_by_name("y_:0")
-	global y_conv
-	y_conv = graph.get_tensor_by_name("y_conv:0")
-	global keep_prob
-	keep_prob = graph.get_tensor_by_name("keep_prob:0")
+    restore_saver = tf.train.import_meta_graph(log_dir + generic_slash + "tensorflow" + generic_slash + "mnist_model.ckpt")
+    #reload all the params to the graph
+    restore_saver.restore(sess, tf.train.latest_checkpoint(log_dir))
+    global model
+    model = tf.get_default_graph()
+    
+    #store the variables
+    global x
+    x = graph.get_tensor_by_name("x:0")
+    global y_
+    y_ = graph.get_tensor_by_name("y_:0")
+    global y_conv
+    y_conv = graph.get_tensor_by_name("y_conv:0")
+    global keep_prob
+    keep_prob = graph.get_tensor_by_name("keep_prob:0")
+
+
+# RUN THE PROGRAM
+run_model()
