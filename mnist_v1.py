@@ -22,6 +22,7 @@ import tensorflow as tf
 import platform
 
 # set constants
+TOTAL_EPOCHS = 20000
 label_count = 10
 data_width = 28
 data_height = 28
@@ -84,7 +85,7 @@ def shallow_cnn(x):
       strides=[1, 1, 1, 1], padding='SAME') + b_conv1)
 
   # Pooling Layer #2
-  h_pool1 = tf.nn.max_pool(x_image, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
+  h_pool1 = tf.nn.max_pool(h_conv1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
   # Convolutional Layer #2
   W_conv2 = weight_variable([5, 5, 32, 64])
@@ -94,14 +95,14 @@ def shallow_cnn(x):
       strides=[1, 1, 1, 1], padding='SAME') + b_conv2)
 
   # Pooling Layer #2
-  h_pool2 = tf.nn.max_pool(x_image, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
+  h_pool2 = tf.nn.max_pool(h_conv2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
   # Dense Layer
   W_fc1 = weight_variable([7 * 7 * 64, 1024])
   b_fc1 = bias_variable([1024])
   
   # Flatten
-  h_pool1_flat = tf.reshape(h_pool1, [-1, 7 * 7 * 64])
+  h_pool1_flat = tf.reshape(h_pool2, [-1, 7 * 7 * 64])
   h_fc1 = tf.nn.relu(tf.matmul(h_pool1_flat, W_fc1) + b_fc1)
   
   # Dropout
@@ -119,16 +120,16 @@ def shallow_cnn(x):
 # Load training and eval data
 print("Data Loading")
 mnist = tf.keras.datasets.mnist
-(x_train, y_train),(x_test, y_test) = mnist.load_data()
-x_train, x_test = x_train / 255.0, x_test / 255.0
+(train_x, train_y),(test_x, test_y) = mnist.load_data()
+train_x, test_x = train_x / 255.0, test_x / 255.0
 
-total_train_data = len(y_train)
-total_test_data = len(y_test)
+total_train_data = len(train_y)
+total_test_data = len(test_y)
 
 print("Encoding Labels")
 # One-Hot encode the labels
-y_train = encodeLabels(y_train)
-y_test = encodeLabels(y_test)
+train_y = encodeLabels(train_y)
+test_y = encodeLabels(test_y)
 
 print("Creating Datasets")
 # Create the DATASETs
@@ -142,7 +143,7 @@ print("Zipping The Data Together")
 train_data = tf.data.Dataset.zip((train_x_dataset, train_y_dataset)).shuffle(buffer_size=total_train_data).repeat().batch(batch_size).prefetch(buffer_size=5)
 test_data = tf.data.Dataset.zip((test_x_dataset, test_y_dataset)).shuffle(buffer_size=total_test_data).repeat().batch(batch_size).prefetch(buffer_size=1)
 
-pritn("Creating Iterators")
+print("Creating Iterators")
 # Create Iterators
 train_iterator = train_data.make_initializable_iterator()
 test_iterator = test_data.make_initializable_iterator()
@@ -153,10 +154,10 @@ test_next_element = test_iterator.get_next()
 
 print("Defining Model Placeholders")
 # Create the model
-x = tf.placeholder(tf.float32, [None, data_width * data_height])
+x = tf.placeholder(tf.float32, [None, data_width, data_height])
 
 # Define loss and optimizer
-y_ = tf.placeholder(tf.float32, [None, label_count])
+y_ = tf.placeholder(tf.int8, [None, label_count])
 
 # Build the graph for the deep net
 y_conv, keep_prob = shallow_cnn(x)
@@ -185,13 +186,13 @@ with tf.Session() as sess:
   print("----------------------|   |----|-----|---|   ---------|------|--\--|---------------------")
   print("----------------------|    |---|     ----|     |------|------|---\-|---------------------")
   print("----------------------|----/---|-----|----\----/---|-----|---|----\|---------------------")
-  for i in range(20001):
+  for i in range(TOTAL_EPOCHS + 1):
 	  if i % 100 == 0:
 		  validation_batch = sess.run(test_next_element)
 		  acc = sess.run([accuracy], feed_dict={
 			  x: validation_batch[0], y_: validation_batch[1], keep_prob: 1.0})
-		  print('step %d, test accuracy %g' % (i, acc))
-	  print("epoch %d" % i)
+		  print('step ' + str(i) + ', test accuracy' + str(acc))
+	  print("epoch " + str(i))
 	  batch = sess.run(train_next_element)
 	  sess.run([train_step], feed_dict={
 		  x: batch[0], y_: batch[1], keep_prob: 0.5})
@@ -204,6 +205,6 @@ with tf.Session() as sess:
   
   # Run for final accuracy
   validation_batch = sess.run(test_next_element)
-  print('Final Accuracy %g' % accuracy.eval(feed_dict={
-	  x: validation_batch[0], y_: validation_batch[1], keep_prob: 1.0}))
+  print('Final Accuracy ' + str(accuracy.eval(feed_dict={
+	  x: validation_batch[0], y_: validation_batch[1], keep_prob: 1.0})))
   print("FINISHED")

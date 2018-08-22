@@ -23,6 +23,7 @@ We will be using the MNIST dataset, which is comprised of grayscale images of di
 * Adding Regularization
 * Confusion Matrix
 * Loading the model from memory
+* Using Eager Execution
 
 # A More Formal Introduction
 * https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/#0
