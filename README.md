@@ -8,7 +8,7 @@ Please go to the tensorflow website and install the appropriate version of tenso
 
 ## Datasets
 We will be using the MNIST dataset, which is comprised of grayscale images of digits [0-9].
-http://yann.lecun.com/exdb/mnist/
+* http://yann.lecun.com/exdb/mnist/
 
 ## Preparing the data pipelines
 
@@ -18,4 +18,11 @@ http://yann.lecun.com/exdb/mnist/
 
 
 # Extras
+* Saving the Model for later use
 * Adding Summaries
+* Adding Regularization
+* Confusion Matrix
+* Loading the model from memory
+
+# A More Formal Introduction
+* https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/#0
