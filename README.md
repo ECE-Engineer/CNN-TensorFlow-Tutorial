@@ -22,8 +22,7 @@ We will be using the MNIST dataset, which is comprised of grayscale images of di
 * Adding Summaries : https://gist.github.com/ECE-Engineer/e3a6b07c5c5d7f0846dfabe7877feb2f
 * Adding Regularization : https://gist.github.com/ECE-Engineer/dbf317e175f3a988e3440fe23e8b1bfa
 * Confusion Matrix : https://gist.github.com/ECE-Engineer/c1d8a2f737a160aa7b0250b86e8d1ac2
-* Model Loading
-* Using Eager Execution
+* Model Loading : https://gist.github.com/ECE-Engineer/fba661b1a8b45b1193942c61e43bd287
 
 # A More Formal Introduction
 * https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/#0
