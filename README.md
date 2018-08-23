@@ -10,11 +10,24 @@ Please go to the tensorflow website and install the appropriate version of tenso
 We will be using the MNIST dataset, which is comprised of grayscale images of digits [0-9].
 * http://yann.lecun.com/exdb/mnist/
 
-## Preparing the data pipelines --- WIP
+## Input Pipeline (ETL Process) : https://gist.github.com/ECE-Engineer/f47ed283d4cd60f8af71dae477508422
+1. Extract
+2. Transform
+3. Load
 
-## Defining the architecture --- WIP
+## Model Architecture (CNN) : https://gist.github.com/ECE-Engineer/2589c24ba1fef1e96d7b982e34001c5f
+* Convolution Layers
+* Pooling Layers
+* Dense Layer
+* Flatten
+* Dropout
+* Logits
 
-## Evaluating the model --- WIP
+## Model Evaluation : https://gist.github.com/ECE-Engineer/b242c03266d3a5c7eae6564d518e6d8a
+* Placeholders
+* Train Operation
+* Loss Operation
+* Accuracy Operation
 
 
 # Extras
@@ -27,3 +40,8 @@ We will be using the MNIST dataset, which is comprised of grayscale images of di
 
 # A More Formal Introduction
 * https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/#0
+
+# Other Resources
+* https://www.tensorflow.org/performance/datasets_performance
+* https://colah.github.io/posts/2014-07-Understanding-Convolutions/
+* https://colah.github.io/posts/2014-07-Conv-Nets-Modular/
