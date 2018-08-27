@@ -207,7 +207,7 @@ def run_model():
         validation_batch = sess.run(test_next_element)
         summary, acc = sess.run([merged, accuracy], feed_dict={
             x: validation_batch[0], y_: validation_batch[1], keep_prob: 1.0})
-        print('step ' + str(i) + ', test accuracy' + str(acc))
+        print('step ' + str(i) + ', test accuracy ' + str(acc))
         # Save the model
         saver.save(sess, log_dir + generic_slash + "tensorflow" + generic_slash + "mnist_model.ckpt")
         # Save the summaries

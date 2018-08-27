@@ -1,8 +1,23 @@
 Linux
+If on the nuc and want to utilize the cores on the sever use X-11 forwarding:
+ssh -X <server-name>
+
 sudo apt-get install python
 sudo apt-get install pip
-sudo pip install -U tensorflow
+python -m pip install --user virtualenv
+python -m virtualenv env
+source env/bin/activate.csh
+pip install --upgrade tensorflow
+pip install --upgrade scikit-plot
+python mnist_v2.py
+deactivate
 
 Windows
 https://www.python.org/ftp/python/3.7.0/python-3.7.0.exe
+python3 -m pip install --user virtualenv
+python3 -m virtualenv env
+.\env\Scripts\activate
 pip3 install --upgrade tensorflow
+pip3 install --upgrade scikit-plot
+python3 mnist_v2.py
+deactivate

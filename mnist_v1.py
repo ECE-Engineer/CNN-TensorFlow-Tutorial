@@ -190,7 +190,7 @@ with tf.Session() as sess:
 		  validation_batch = sess.run(test_next_element)
 		  acc = sess.run([accuracy], feed_dict={
 			  x: validation_batch[0], y_: validation_batch[1], keep_prob: 1.0})
-		  print('step ' + str(i) + ', test accuracy' + str(acc))
+		  print('step ' + str(i) + ', test accuracy ' + str(acc))
 	  print("epoch " + str(i))
 	  batch = sess.run(train_next_element)
 	  sess.run([train_step], feed_dict={
