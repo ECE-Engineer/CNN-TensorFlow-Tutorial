@@ -1,0 +1,8 @@
+Linux
+sudo apt-get install python
+sudo apt-get install pip
+sudo pip install -U tensorflow
+
+Windows
+https://www.python.org/ftp/python/3.7.0/python-3.7.0.exe
+pip3 install --upgrade tensorflow

@@ -9,7 +9,6 @@ import sys
 from textwrap import wrap
 import re
 import itertools
-import tfplot
 import matplotlib
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
