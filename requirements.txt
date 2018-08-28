@@ -21,3 +21,14 @@ pip3 install --upgrade tensorflow
 pip3 install --upgrade scikit-plot
 python3 mnist_v2.py
 deactivate
+
+OR
+
+https://www.python.org/ftp/python/2.7.15/python-2.7.15.amd64.msi
+python -m pip install --user virtualenv
+python -m virtualenv env
+.\env\Scripts\activate
+pip install --upgrade tensorflow
+pip install --upgrade scikit-plot
+python mnist_v2.py
+deactivate
