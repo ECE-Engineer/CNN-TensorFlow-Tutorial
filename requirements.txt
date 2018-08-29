@@ -1,3 +1,5 @@
+Using Virtual ENV
+===============================================================================
 Linux
 If on the nuc and want to utilize the cores on the sever use X-11 forwarding:
 ssh -X <server-name>
