@@ -1,7 +1,7 @@
 Using Virtual ENV
 ===============================================================================
 Linux
-If on the nuc and want to utilize the cores on the sever use X-11 forwarding:
+If on the nuc and want to create the confusion matrix use X-11 forwarding:
 ssh -X <server-name>
 
 sudo apt-get install python
