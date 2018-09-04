@@ -167,7 +167,7 @@ def run_model():
   x = tf.placeholder(tf.float32, [None, data_width, data_height], name = "x")
 
   # Define loss and optimizer
-  y_ = tf.placeholder(tf.int8, [None, label_count], name = "x")
+  y_ = tf.placeholder(tf.int8, [None, label_count], name = "y_")
 
   # Build the graph for the deep net
   y_conv, keep_prob = shallow_cnn(x)
