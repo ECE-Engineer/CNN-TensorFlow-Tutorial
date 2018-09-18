@@ -48,4 +48,4 @@ We will be using the MNIST dataset, which is comprised of grayscale images of di
 * https://www.tensorflow.org/performance/datasets_performance
 * https://colah.github.io/posts/2014-07-Understanding-Convolutions/
 * https://colah.github.io/posts/2014-07-Conv-Nets-Modular/
-* My Blog Post : https://medium.com/@kzeller_133/a-convolutional-neural-network-implementation-with-tensorflow-ad23b8cc0691
+* [My Blog Post](https://medium.com/@kzeller_133/a-convolutional-neural-network-implementation-with-tensorflow-ad23b8cc0691)
