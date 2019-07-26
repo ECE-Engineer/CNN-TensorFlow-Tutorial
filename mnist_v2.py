@@ -256,13 +256,13 @@ def graph_loader():
     
     #store the variables
     global x
-    x = graph.get_tensor_by_name("x:0")
+    x = model.get_tensor_by_name("x:0")
     global y_
-    y_ = graph.get_tensor_by_name("y_:0")
+    y_ = model.get_tensor_by_name("y_:0")
     global y_conv
-    y_conv = graph.get_tensor_by_name("y_conv:0")
+    y_conv = model.get_tensor_by_name("y_conv:0")
     global keep_prob
-    keep_prob = graph.get_tensor_by_name("keep_prob:0")
+    keep_prob = model.get_tensor_by_name("keep_prob:0")
 
 
 # RUN THE PROGRAM
