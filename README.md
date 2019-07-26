@@ -38,6 +38,9 @@ We will be using the MNIST dataset, which is comprised of grayscale images of di
 * [Model Loading](https://gist.github.com/ECE-Engineer/fba661b1a8b45b1193942c61e43bd287)
 * [Using Tensorboard](https://www.tensorflow.org/guide/summaries_and_tensorboard)
 
+## See the (Extra) Results here
+* [Extra Results](https://github.com/TensorFlow-ML-Architectures/Convolutional-Neural-Network)
+
 # Slides
 * [pdf](https://github.com/ECE-Engineer/CNN-TensorFlow-Tutorial/blob/master/Tensoflow%20Workshop%20%26%20Talk.pdf)
 
